@@ -16,7 +16,9 @@
             <h1>My Todo App</h1>
         </div>
 
-        <div class="container border rounded bg-white mt-3">
+        <!--Using float-end on form submit button makes the button go out of this div, found online that adding
+        clearfix to the parent divs class fixes it, and it does fix it.-->
+        <div class="container border rounded bg-white mt-3 clearfix">
             <form>
                 <div class="mb-3 mt-3">
                     <label for="title" class="form-label">Title</label>
@@ -52,8 +54,8 @@
                     <textarea class="form-control" rows="2" id="comment" name="comment" ></textarea>
                 </div>
 
-                <!--Fix: using float-end makes the button go out of this div-->
-                <button type="submit" class="btn btn-primary mb-3">Add Todo</button>
+            
+                <button type="submit" class="btn btn-primary mb-3 float-md-end">Add Todo</button>
             </form>
         </div>
 
