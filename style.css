@@ -1,0 +1,40 @@
+.bg-white {
+    background-color: white;
+}
+
+#comment {
+    resize: none;
+}
+
+.cardPersonName {
+    color: white;
+    background-color: turquoise;
+    border-radius: 5px;
+}
+
+.cardNrOfAttachement {
+    color: white;
+    background-color: gray;
+    border-radius: 5px;
+}
+
+.btn-mark {
+    color:#198754;
+    border-style: solid;
+    border-color: #198754;
+    border-radius: 5px;
+}
+
+.btn-edit {
+    color:#0d6efd;
+    border-style: solid;
+    border-color: #0d6efd;
+    border-radius: 5px;
+}
+
+.btn-remove {
+    color:#dc3545;
+    border-style: solid;
+    border-color: #dc3545;
+    border-radius: 5px;
+}
