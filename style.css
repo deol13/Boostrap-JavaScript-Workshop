@@ -38,3 +38,16 @@
     border-color: #dc3545;
     border-radius: 5px;
 }
+.btn-sort {
+    color:gray;
+    border-style: solid;
+    border-color:gray;
+    border-radius: 5px;
+}
+
+.btn-search {
+    color:gray;
+    border-style: solid;
+    border-color:gray;
+    border-radius: 5px;
+}
