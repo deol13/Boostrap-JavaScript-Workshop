@@ -36,17 +36,17 @@
                 <div class="row">
                     <!--Due Date Input-->
                     <div class="mb-3 col-sm-6">
-                        <label for="DueDate" class="form-label">Due Date</label>
+                        <label for="dueDate" class="form-label">Due Date</label>
                         <input type="date" class="form-control" id="dueDate" name="dueDate">
                     </div>
                     <!--Assign to person Input-->
                     <div class="mb-3 col-sm-6">
                         <label for="assignToPerson" class="form-label">Assign to Person (Optional)</label>
                         <select class="form-select" id="assignToPerson" name="assignToPerson">
-                            <option value="placeholder">-- Select Person (Optional) --</option>
-                            <option>Dennis Olsen</option>
-                            <option>Johan Karlsson</option>
-                            <option>Emil Sundsberg</option>
+                            <option value="">-- Select Person (Optional) --</option>
+                            <option value="Dennis Olsen">Dennis Olsen</option>
+                            <option value="Johan Karlsson">Johan Karlsson</option>
+                            <option value="Emil Sundsberg">Emil Sundsberg</option>
                         </select>
                     </div>
                 </div> 
@@ -56,7 +56,7 @@
                 <!--input-group is what removes the space between input and button.-->
                 <div class="input-group mb-3">
                     <!--multiple allows for multiple files to be uploaded-->
-                    <input type="file" class="form-control" id="file" name="formFile" multiple>
+                    <input type="file" class="form-control" id="fileForm" name="formFile" multiple>
                     <button type="reset" class="btn btn-outline-secondary reset">x</button>
                 </div>
 
@@ -67,7 +67,7 @@
                 </div>
 
             
-                <button type="submit" class="btn btn-primary mb-3 float-md-end">Add Todo</button>
+                <button type="button" class="btn btn-primary mb-3 float-md-end" id="reg-Todo-Btn" onclick="validateAndSubmit()">Add Todo</button>
             </form>
         </div>
 
@@ -78,10 +78,10 @@
                         <h5 class="pt-1">Todos</h5>
                     </div>
                     <div class="btn-group col-lg-1 float-md-end">
-                        <button class="btn btn-funnel">
+                        <button type="button" class="btn btn-funnel" onclick="showTable()">
                             <i class="bi bi-funnel" style="font-size: 1em; color: rgb(128, 128, 128);"></i>
                         </button>
-                        <button class="btn btn-sort">
+                        <button type="button" class="btn btn-sort">
                             <i class="bi bi-sort-down" style="font-size: 1em; color: rgb(128, 128, 128);"></i>
                         </button>                        
                     </div>
