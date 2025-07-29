@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Workshop</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
     <link rel="stylesheet" href="style.css">
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -19,22 +20,26 @@
         <!--Using float-end on form submit button makes the button go out of this div, found online that adding
         clearfix to the parent divs class fixes it, and it does fix it.-->
         <div class="container border rounded bg-white mt-3 clearfix">
-            <form>
+            <form id="addTodoForm">
+                <!--Title Input-->
                 <div class="mb-3 mt-3">
                     <label for="title" class="form-label">Title</label>
                     <input type="text" class="form-control" id="title" name="title">
                 </div>
 
+                <!--Description Input-->
                 <div class="mb-3">
                     <label for="description" class="form-label">Description</label>
                     <textarea class="form-control" rows="3" id="description" name="description"></textarea>
                 </div>
 
                 <div class="row">
+                    <!--Due Date Input-->
                     <div class="mb-3 col-sm-6">
                         <label for="DueDate" class="form-label">Due Date</label>
                         <input type="date" class="form-control" id="dueDate" name="dueDate">
                     </div>
+                    <!--Assign to person Input-->
                     <div class="mb-3 col-sm-6">
                         <label for="assignToPerson" class="form-label">Assign to Person (Optional)</label>
                         <select class="form-select" id="assignToPerson" name="assignToPerson">
@@ -43,13 +48,17 @@
                     </div>
                 </div> 
 
+                <!--Attachment Input-->
                 <label for="formFile" class="form-label">Attachments</label>
                 <!--input-group is what removes the space between input and button.-->
                 <div class="input-group mb-3">
-                    <input type="file" class="form-control" id="file" name="formFile">
+                    <!--multiple allows for multiple files to be uploaded-->
+                    <input type="file" class="form-control" id="file" name="formFile" multiple>
                     <button type="reset" class="btn btn-outline-secondary reset">x</button>
                 </div>
 
+                <!--Comment Input-->
+                <!--ASK WHAT THE PURPOSE OF THIS PART IS-->
                 <div class="mb-3">
                     <textarea class="form-control" rows="2" id="comment" name="comment" ></textarea>
                 </div>
@@ -66,8 +75,12 @@
                         <h5 class="pt-1">Todos</h5>
                     </div>
                     <div class="btn-group col-lg-1 float-md-end">
-                        <button class="btn btn-sort">sort</button>
-                        <button class="btn btn-search">?</button>
+                        <button class="btn btn-funnel">
+                            <i class="bi bi-funnel" style="font-size: 1em; color: rgb(128, 128, 128);"></i>
+                        </button>
+                        <button class="btn btn-sort">
+                            <i class="bi bi-sort-down" style="font-size: 1em; color: rgb(128, 128, 128);"></i>
+                        </button>                        
                     </div>
                 </div>
                 
@@ -83,9 +96,15 @@
                         </div>
                         <div class="col-lg-2 pe-4">
                             <div class="btn-group pt-2 float-sm-end">
-                                <button class="btn btn-mark">1</button>
-                                <button class="btn btn-edit">2</button>
-                                <button class="btn btn-remove">3</button>
+                                <button class="btn btn-check">
+                                    <i class="bi bi-check2" style="font-size: 1em; color: #198754;"></i>
+                                </button>
+                                <button class="btn btn-edit">
+                                    <i class="bi bi-pencil" style="font-size: 1em; color: #0d6efd;"></i>
+                                </button>
+                                <button class="btn btn-remove">
+                                    <i class="bi bi-trash" style="font-size: 1em; color: #dc3545;"></i>
+                                </button>
                             </div>
                         </div>
                     </div>

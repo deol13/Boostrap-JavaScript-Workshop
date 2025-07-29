@@ -18,7 +18,7 @@
     border-radius: 5px;
 }
 
-.btn-mark {
+.btn-check {
     color:#198754;
     border-style: solid;
     border-color: #198754;
@@ -39,13 +39,13 @@
     border-radius: 5px;
 }
 .btn-sort {
-    color:gray;
+    color:rgb(128, 128, 128);
     border-style: solid;
     border-color:gray;
     border-radius: 5px;
 }
 
-.btn-search {
+.btn-funnel {
     color:gray;
     border-style: solid;
     border-color:gray;
