@@ -1,17 +1,3 @@
-// Display a list of To-Do items on the page:
-// Skapa en klass som innehåller, title, description, dueDate, Assign to Person: name, antal attachments och när den skapades.
-// En array av den klassen som innehåller några hård kodade todos example.
-// En metod som går igenom arrayen när webläsaren har laddats in och skickar todo datan en i taget till
-// En annan metod som skapar korten och lägger in datan sen skickar det till html sidan.
-
-// Add new To-Do items via a form input or button 
-// Metod som lyssnar på form submit knappen: Hämtar form datan sen lägger till den i arrayen sen skickar det till metod some skapar kort.
-
-// Remove existing To-Do items from the list 
-// En metod som lyssnar på ta bort todo knappen: Ta bort det kortet från kort listan.
-
-// Validation
-
 var data = [
     {title: "Example1", description: "Description of example1", dueDate: "2025-08-15", assignToPerson: "Dennis Olsen", attachments: [], created: "2025-07-29"},
     {title: "Example2", description: "Description of example2", dueDate: "2025-08-18", assignToPerson: "Johan Karlsson", attachments: ["exampleFile"], created: "2025-07-29"}
@@ -24,18 +10,6 @@ function showTable() {
     // so I create a new div and remove that.
     const element = document.getElementById("cardContainer");
     if(element != null) element.remove();
-
-    /*
-    // Temporary here to check so everything works, remove when done!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    data.forEach(element => {
-        console.log("title: " + element["title"]);
-        console.log("description: " + element["description"]);
-        console.log("dueDate: " + element["dueDate"]);
-        console.log("assignedTo: " + element["assignToPerson"]);
-        console.log("attachments: " + element["attachments"].length);
-        console.log("--------------------");
-    });
-    */
 
     // Get the base div for the cards
     var container = document.getElementById("cardDiv");
@@ -56,22 +30,21 @@ function showTable() {
         const content = `    
             <div class="card-body" id="${divID}">
                 <div class="border border-1 rounded">
-                    <div class="row">
-                        <div class="col-md-8">
+                    <div class="btn-toolbar justify-content-between">
+                        <div class="input-group">
                             <h6 class="card-title pt-2 ps-3">${result.title}</h6>
                         </div>
-                        <div class="col-md-2 text-center">
-                            <p class="card-text pt-2">Created: ${result.created}</p>
-                        </div>
-                        <div class="col-lg-2 pe-4">
-                            <div class="btn-group pt-2 float-sm-end">
+                        <div class="btn-group mt-2 me-3">
+                            <p class="card-text ps-3 pe-3">Created: ${result.created}</p>
+
+                            <div class="btn-group float-sm-end">
                                 <button class="btn btn-check">
                                     <i class="bi bi-check2" style="font-size: 1em; color: #198754;"></i>
                                 </button>
-                                <button class="btn btn-edit">
+                                <button class="btn btn-edit-card">
                                     <i class="bi bi-pencil" style="font-size: 1em; color: #0d6efd;"></i>
                                 </button>
-                                <button type="button" class="btn btn-remove" id="${count}" onclick="removeCard(this.id)">
+                                <button type="button" class="btn btn-remove-card" id="${count}" onclick="removeCard(this.id)">
                                     <i class="bi bi-trash" style="font-size: 1em; color: #dc3545;"></i>
                                 </button>
                             </div>
@@ -79,22 +52,23 @@ function showTable() {
                     </div>
                 
                     <p class="card-text ps-3">${result.description}</p>
-                    <div class="row pb-2 ps-3">
-                        <div class="col-sm-2">      
+                    
+                    <div class="btn-toolbar mb-3 ms-3">
+                        <div class="input-group me-2">      
                             <p class="card-text ">
                             <i class="bi bi-calendar-event" style="font-size: 1em; color: #000000;"></i>
                             Due: ${result.dueDate}
                             </p>
                         </div>
-                        <div class="col-sm-2">
-                            <p class="card-text text-center cardPersonName">
-                            <i class="bi bi-paperclip" style="font-size: 1em; color: #ffffff;"></i>
+                        <div class="input-group me-2">
+                            <p class="card-text text-center cardAssignedTo">
+                            <i class="bi bi-person" style="font-size: 1em; color: #ffffff;"></i>
                             ${result.assignToPerson}
                             </p>
                         </div>
-                        <div class="col-sm-2">
-                            <p class="card-text text-center cardNrOfAttachement">
-                            <i class="bi bi-person" style="font-size: 1em; color: #ffffff;"></i>
+                        <div class="input-group">
+                            <p class="card-text text-center cardAttachementNr">
+                            <i class="bi bi-paperclip" style="font-size: 1em; color: #ffffff;"></i>
                             ${result.attachments.length} attachments
                             </p>
                         </div>
@@ -102,6 +76,53 @@ function showTable() {
                 </div>                  
             </div>
         `;
+        /* 
+                <div class="row">
+                    <div class="col-md-8">
+                        <h6 class="card-title pt-2 ps-3">${result.title}</h6>
+                    </div>
+                    <div class="col-md-2 text-center">
+                        <p class="card-text pt-2">Created: ${result.created}</p>
+                    </div>
+                    <div class="col-lg-2 pe-4">
+                        <div class="btn-group pt-2 float-sm-end">
+                            <button class="btn btn-check">
+                                <i class="bi bi-check2" style="font-size: 1em; color: #198754;"></i>
+                            </button>
+                            <button class="btn btn-edit-card">
+                                <i class="bi bi-pencil" style="font-size: 1em; color: #0d6efd;"></i>
+                            </button>
+                            <button type="button" class="btn btn-remove-card" id="${count}" onclick="removeCard(this.id)">
+                                <i class="bi bi-trash" style="font-size: 1em; color: #dc3545;"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <p class="card-text ps-3">${result.description}</p>
+                <div class="row pb-2 ps-3">
+                    <div class="col-sm-2">      
+                        <p class="card-text ">
+                        <i class="bi bi-calendar-event" style="font-size: 1em; color: #000000;"></i>
+                        Due: ${result.dueDate}
+                        </p>
+                    </div>
+                    <div class="col-sm-2">
+                        <p class="card-text text-center cardAssignedTo">
+                        <i class="bi bi-paperclip" style="font-size: 1em; color: #ffffff;"></i>
+                        ${result.assignToPerson}
+                        </p>
+                    </div>
+                    <div class="col-sm-2">
+                        <p class="card-text text-center cardAttachementNr">
+                        <i class="bi bi-person" style="font-size: 1em; color: #ffffff;"></i>
+                        ${result.attachments.length} attachments
+                        </p>
+                    </div>
+                </div>
+        */
+
+
         // Add the card to the new div
         newDiv.innerHTML += content;
         // Add that div to the container
@@ -130,15 +151,6 @@ function validateAndSubmit() {
     const dueDate = document.getElementById("dueDate").value;
     const assignedTo = document.getElementById("assignToPerson").value;
     const attachments = document.getElementById("fileForm");
-
-
-    // Temporary here to check so everything works, remove when done!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    /*
-    console.log("title: " + title);
-    console.log("description: " + description);
-    console.log("dueDate: " + dueDate);
-    console.log("assignedTo: " + assignedTo);
-    */
     
     // Add the attached files to an array
     var files = [];
@@ -194,6 +206,7 @@ function validateAndSubmit() {
     data.push(todo);
     console.log("Form submitted successfully!");
     
+    showTable();
 }
 
 function onlyDate(date){

@@ -6,13 +6,13 @@
     resize: none;
 }
 
-.cardPersonName {
+.cardAssignedTo {
     color: #ffffff;
     background-color: #40e0d0;
     border-radius: 5px;
 }
 
-.cardNrOfAttachement {
+.cardAttachementNr {
     color: #ffffff;
     background-color: #808080;
     border-radius: 5px;
@@ -25,27 +25,27 @@
     border-radius: 5px;
 }
 
-.btn-edit {
+.btn-edit-card {
     color:#0d6efd;
     border-style: solid;
     border-color: #0d6efd;
     border-radius: 5px;
 }
 
-.btn-remove {
+.btn-remove-card {
     color:#dc3545;
     border-style: solid;
     border-color: #dc3545;
     border-radius: 5px;
 }
-.btn-sort {
+.btn-sort-cards {
     color:rgb(128, 128, 128);
     border-style: solid;
     border-color:gray;
     border-radius: 5px;
 }
 
-.btn-funnel {
+.btn-show-cards {
     color:gray;
     border-style: solid;
     border-color:gray;

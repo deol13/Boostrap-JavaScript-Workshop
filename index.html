@@ -36,7 +36,7 @@
                 <div class="row">
                     <!--Due Date Input-->
                     <div class="mb-3 col-sm-6">
-                        <label for="dueDate" class="form-label">Due Date</label>
+                        <label for="dueDate" class="form-label" lang="en-GB">Due Date</label>
                         <input type="date" class="form-control" id="dueDate" name="dueDate">
                     </div>
                     <!--Assign to person Input-->
@@ -56,12 +56,10 @@
                 <!--input-group is what removes the space between input and button.-->
                 <div class="input-group mb-3">
                     <!--multiple allows for multiple files to be uploaded-->
-                    <input type="file" class="form-control" id="fileForm" name="formFile" multiple>
+                    <input type="file" class="form-control" id="fileForm" name="formFile" lang="en-GB" multiple>
                     <button type="reset" class="btn btn-outline-secondary reset">x</button>
                 </div>
 
-                <!--Comment Input-->
-                <!--ASK WHAT THE PURPOSE OF THIS PART IS-->
                 <div class="mb-3">
                     <textarea class="form-control" rows="2" id="comment" name="comment" ></textarea>
                 </div>
@@ -72,21 +70,21 @@
         </div>
 
         <div class="container mt-3 card" id="cardDiv">
-            <div class="card-header bg-white ">
-                <div class="row">
-                    <div class="col-sm-11">
-                        <h5 class="pt-1">Todos</h5>
-                    </div>
-                    <div class="btn-group col-lg-1 float-md-end">
-                        <button type="button" class="btn btn-funnel" onclick="showTable()">
+            <div class="card-header bg-white">
+                
+                <!--btn-toolbar to make it look lika toolbar, and justify-content-between to make the btn-group go at the end-->
+                <!--Using the groups only makes the responsivness better then to mix row and grouping.-->
+                <div class="btn-toolbar justify-content-between" role="toolbar">
+                    <h5 class="pt-1">Todos</h5>
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-show-cards" onclick="showTable()">
                             <i class="bi bi-funnel" style="font-size: 1em; color: #808080"></i>
                         </button>
-                        <button class="btn btn-sort">
+                        <button class="btn btn-sort-cards">
                             <i class="bi bi-sort-down" style="font-size: 1em; color: #808080"></i>
-                        </button>                        
+                        </button>
                     </div>
                 </div>
-                
             </div>
         </div>
     </div>
