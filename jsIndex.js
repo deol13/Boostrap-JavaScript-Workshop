@@ -80,14 +80,23 @@ function showTable() {
                 
                     <p class="card-text ps-3">${result.description}</p>
                     <div class="row pb-2 ps-3">
-                        <div class="col-sm-2">                            
-                            <p class="card-text ">Due: ${result.dueDate}</p>
+                        <div class="col-sm-2">      
+                            <p class="card-text ">
+                            <i class="bi bi-calendar-event" style="font-size: 1em; color: #000000;"></i>
+                            Due: ${result.dueDate}
+                            </p>
                         </div>
                         <div class="col-sm-2">
-                            <p class="card-text text-center cardPersonName">${result.assignToPerson}</p>
+                            <p class="card-text text-center cardPersonName">
+                            <i class="bi bi-paperclip" style="font-size: 1em; color: #ffffff;"></i>
+                            ${result.assignToPerson}
+                            </p>
                         </div>
                         <div class="col-sm-2">
-                            <p class="card-text text-center cardNrOfAttachement">${result.attachments.length} attachments</p>
+                            <p class="card-text text-center cardNrOfAttachement">
+                            <i class="bi bi-person" style="font-size: 1em; color: #ffffff;"></i>
+                            ${result.attachments.length} attachments
+                            </p>
                         </div>
                     </div>
                 </div>                  

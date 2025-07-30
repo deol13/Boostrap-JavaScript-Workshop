@@ -7,14 +7,14 @@
 }
 
 .cardPersonName {
-    color: white;
-    background-color: turquoise;
+    color: #ffffff;
+    background-color: #40e0d0;
     border-radius: 5px;
 }
 
 .cardNrOfAttachement {
-    color: white;
-    background-color: gray;
+    color: #ffffff;
+    background-color: #808080;
     border-radius: 5px;
 }
 
