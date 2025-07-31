@@ -26,10 +26,17 @@ function showTable() {
         // In order to be able to remove a card I need to know it's id but I could not find a way to make a button get another elements id and send that.
         // So the remove button's id is count, while the card's base div is "card"+count.
         // I do this so the button can just send it's own id to removeCard, then I add it's id to the word "card" to get the div's id.
-        // 
+
+
+        // I use groups instead of rows and columns to match Merhdads better and the cards are more responsive when the screen get smaller.
+        // Using both row/columns and groups made them clash, and using only rows/columns didn't get as good as a result as using groups.
         const content = `    
             <div class="card-body" id="${divID}">
                 <div class="border border-1 rounded">
+
+                    <!--First row, contains title, when it was created and check, edit and remove buttons-->
+                    <!--The i elements are the icons.-->
+
                     <div class="btn-toolbar justify-content-between">
                         <div class="input-group">
                             <h6 class="card-title pt-2 ps-3">${result.title}</h6>
@@ -53,6 +60,9 @@ function showTable() {
                 
                     <p class="card-text ps-3">${result.description}</p>
                     
+                    <!--A group of due date, who the assignment is assigned to and the number of attachments-->
+                    <!--Added ps-1 pe-1 to make the "box's" of assignedTo and attchment number bigger because by default the text is too close to the edges.-->
+
                     <div class="btn-toolbar mb-3 ms-3">
                         <div class="input-group me-2">      
                             <p class="card-text ">
@@ -61,13 +71,13 @@ function showTable() {
                             </p>
                         </div>
                         <div class="input-group me-2">
-                            <p class="card-text text-center cardAssignedTo">
+                            <p class="card-text text-center cardAssignedTo ps-1 pe-1">
                             <i class="bi bi-person" style="font-size: 1em; color: #ffffff;"></i>
                             ${result.assignToPerson}
                             </p>
                         </div>
                         <div class="input-group">
-                            <p class="card-text text-center cardAttachementNr">
+                            <p class="card-text text-center cardAttachementNr ps-1 pe-1">
                             <i class="bi bi-paperclip" style="font-size: 1em; color: #ffffff;"></i>
                             ${result.attachments.length} attachments
                             </p>
@@ -76,53 +86,6 @@ function showTable() {
                 </div>                  
             </div>
         `;
-        /* 
-                <div class="row">
-                    <div class="col-md-8">
-                        <h6 class="card-title pt-2 ps-3">${result.title}</h6>
-                    </div>
-                    <div class="col-md-2 text-center">
-                        <p class="card-text pt-2">Created: ${result.created}</p>
-                    </div>
-                    <div class="col-lg-2 pe-4">
-                        <div class="btn-group pt-2 float-sm-end">
-                            <button class="btn btn-check">
-                                <i class="bi bi-check2" style="font-size: 1em; color: #198754;"></i>
-                            </button>
-                            <button class="btn btn-edit-card">
-                                <i class="bi bi-pencil" style="font-size: 1em; color: #0d6efd;"></i>
-                            </button>
-                            <button type="button" class="btn btn-remove-card" id="${count}" onclick="removeCard(this.id)">
-                                <i class="bi bi-trash" style="font-size: 1em; color: #dc3545;"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                
-                <p class="card-text ps-3">${result.description}</p>
-                <div class="row pb-2 ps-3">
-                    <div class="col-sm-2">      
-                        <p class="card-text ">
-                        <i class="bi bi-calendar-event" style="font-size: 1em; color: #000000;"></i>
-                        Due: ${result.dueDate}
-                        </p>
-                    </div>
-                    <div class="col-sm-2">
-                        <p class="card-text text-center cardAssignedTo">
-                        <i class="bi bi-paperclip" style="font-size: 1em; color: #ffffff;"></i>
-                        ${result.assignToPerson}
-                        </p>
-                    </div>
-                    <div class="col-sm-2">
-                        <p class="card-text text-center cardAttachementNr">
-                        <i class="bi bi-person" style="font-size: 1em; color: #ffffff;"></i>
-                        ${result.attachments.length} attachments
-                        </p>
-                    </div>
-                </div>
-        */
-
-
         // Add the card to the new div
         newDiv.innerHTML += content;
         // Add that div to the container
@@ -157,8 +120,6 @@ function validateAndSubmit() {
     for (var i = 0; i < attachments.files.length; i++) {
         var name = attachments.files.item(i).name;
         files.push(attachments.files.item(i));
-        //console.log("files name: " + name);
-        //console.log("file:" + files[i]);
     }
 
     // Check if the mandatory fields are filled
